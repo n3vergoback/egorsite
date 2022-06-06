@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block sidebar %}
+        {% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+        <div class="col-md-2 mt-5 ml-5">
+            <div class="card mr-5 mb-3" style="height: 50rem; width: 25rem;">
+                {% if watches.image %}
+                <img src="{{ watches.image.url }}" height="400" width="100" class="card-img-top" alt="...">
+                {% else %}
+                <img src="https://ibb.co/RhrNjcV" height="400" width="100" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title"> {{ item.name }} </h5>
+                    <p class="card-text">
+                        <p> <b> Бренд: </b><em> {{ watches.brand }} </em></p>
+                        <p> <b> Модель: </b><em> {{ watches.series }} </em></p>
+                        <p> <b> Цена: </b><em> {{ watches.price|intcomma }} рублей </em></p>
+                        <p> {{ watches.created_at|date:'Y-m-d H:i' }} </p>
+                </div>
+            </div>
+        </div>
+{% endblock %}

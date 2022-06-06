@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+        {% for item in products %}
+        <div class="col-md-2 mt-5 ml-5">
+            <div class="card mr-5 mb-3" style="height: 50rem; width: 25rem;">
+                {% if item.image %}
+                <img src="{{ item.image.url }}" height="400" width="100" class="card-img-top" alt="...">
+                {% else %}
+                <img src="https://ibb.co/RhrNjcV" height="400" width="100" class="card-img-top" alt="...">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title"> {{ item.brand }} </h5>
+                    <p class="card-text">
+                        <p> <b> Бренд: </b><em> {{ item.brand }} </em></p>
+                        <p> <b> Модель: </b><em> {{ item.series }} </em></p>
+                        <p> <b> Цена: </b><em> {{ item.price|intcomma }} рублей </em></p>
+                        <p> {{ item.created_at|date:'Y-m-d H:i' }} </p>
+                        <a href="#" class="btn btn-primary"> Подробнее </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}

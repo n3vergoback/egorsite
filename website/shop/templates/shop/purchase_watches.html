@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Купить часы</title>
+</head>
+<body>
+
+    <div>
+        <p> Бренд часов: {{ item.brand }} </p>
+        <p> Модель:{{ item.series }} </p>
+        <p> Цена: {{ item.price }} рублей </p>
+        <p> {{ item.sex }} </p>
+        <p> {{ item.created_at|date:'Y-m-d H:i' }} </p>
+        <form >
+            <button type='submit'>Купить</button>
+        </form>
+    </div>
+    <hr>
+
+</body>
+</html>

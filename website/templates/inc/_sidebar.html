@@ -1,0 +1,19 @@
+{% load shop_tags %}
+
+{% comment %}
+<div class="list-group">
+    <a class="list-group-item list-group-item-action disabled"><h1> Фильтры: </h1></a>
+        <a href="{% url 'watches' %}" class="list-group-item list-group-item-action"> Все </a>
+    <a class="list-group-item list-group-item-action disabled"><h3> Механизм: </h3></a>
+        {% for item in mechanisms %}
+        <a href="/watches_mechanisms/{{ item.id }}" class="list-group-item list-group-item-action"> {{ item.mechanism }} </a>
+        {% endfor %}
+    <a class="list-group-item list-group-item-action disabled"><h3> Модели: </h3></a>
+        {% for item in companies %}
+        <a href="/watches_companies/{{ item.id }}" class="list-group-item list-group-item-action"> {{ item.company }} </a>
+        {% endfor %}
+</div>
+
+{% endcomment %}
+
+{% show_watches_filters %}
