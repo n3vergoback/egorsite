@@ -1,17 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="{% url 'login' %}" method="post">
+    <h1>Создание аккаунта</h1>
+    <p>Заполните форму для регистрации:</p>
+    <form action="." method="post">
         {% csrf_token %}
-        {% for field in form %}
-            <div class="form-group">
-                {{ field.label_tag }}
-                {{ field }}
-                <div class="invalid-feedback">
-                    {{ field.errors }}
-                </div>
-            </div>
-        {% endfor %}
-        <button type="submit" class="btn btn-primary"> Войти </button>
+        <div class="form-group">
+        {{ user_form.as_p }}
+        <p><input type="submit" value="Create my account"></p>
+        </div>
     </form>
 {% endblock %}

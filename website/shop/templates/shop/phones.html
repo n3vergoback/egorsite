@@ -3,6 +3,7 @@
 {% load humanize %}
 
 {% block content %}
+<div class="row">
         {% for item in products %}
         <div class="col-md-2 mt-5 ml-5">
             <div class="card mr-5 mb-3" style="height: 50rem; width: 25rem;">
@@ -23,4 +24,5 @@
             </div>
         </div>
         {% endfor %}
+</div>
 {% endblock %}

@@ -1,8 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import *
-from .forms import Login, SignUp
-
+from .forms import Login, SignUp, UserRegisterForm
 
 def startpage(request):
     products = Watches.objects.all()
@@ -64,9 +63,19 @@ def login(requset):
     return render(requset, 'shop/login.html', {'form': form})
 
 
-def sign_up(requset):
-    if requset.method == 'POST':
-        pass
+def user_register(request):
+    if request.method == 'POST':
+        user_form = UserRegisterForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data['password'])
+            new_user.save()
+            profile = Profile.objects.create(user=new_user)
+            return render(request, 'shop/sign_up_success.html', {'new_user': new_user})
     else:
-        form = SignUp()
-    return render(requset, 'shop/login.html', {'form': form})
+        user_form = UserRegisterForm()
+    return render(request, 'shop/sign_up.html', {'user_form': user_form})
+
+
+def sign_up_success(request):
+    return render(request, 'shop/sign_up_success.html')

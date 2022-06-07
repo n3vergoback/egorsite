@@ -5,7 +5,8 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('sign_up/', sign_up, name='sign_up'),
+    path('sign_up_success/', sign_up_success, name='sign_up_success'),
+    path('sign_up/', user_register, name='sign_up'),
     path('login/', login, name='login'),
     path('watches_info/<int:watches_id>', get_watches_info, name='watches_info'),
     path('watches_mechanisms/<int:mechanism_id>/', get_watches_mechanism, name='watches_mechanisms'),
