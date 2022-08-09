@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Создание аккаунта</h1>
-    <p>Заполните форму для регистрации:</p>
-    <form action="." method="post">
-        {% csrf_token %}
-        <div class="form-group">
-        {{ user_form.as_p }}
-        <p><input type="submit" value="Create my account"></p>
-        </div>
-    </form>
+<div class="row">
+    <div class="w-20 mx-auto">
+        <h1>Создание аккаунта</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type='submit'>Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

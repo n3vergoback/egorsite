@@ -33,6 +33,7 @@ class Watches(models.Model):
 
 
 class Phones(models.Model):
+    name = models.CharField(max_length=50, verbose_name='Название', blank=True)
     brand = models.CharField(max_length=50, verbose_name='Бренд')
     series = models.CharField(max_length=50, verbose_name='Модель')
     price = models.IntegerField(verbose_name='Цена')
